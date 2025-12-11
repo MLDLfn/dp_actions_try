@@ -37,11 +37,13 @@
 # print(driver.title)
 # with open('./GitHub_Action_Results.txt', 'w') as f:
 #     f.write(f"This was written with a GitHub action {driver.title}")
-from DrissionPage import Chromium
+from DrissionPage import Chromium, ChromiumOptions
 from pyvirtualdisplay import Display
 display = Display(visible=0, size=(800, 800))  
 display.start()
-browser = Chromium()
+co = ChrmoumOptions()
+co.set_argument("--no-sandbox")
+browser = Chromium(co)
 page = browser.latest_tab
 page.get("https://www.google.com")
 print(page.html)
