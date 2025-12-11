@@ -13,13 +13,16 @@ jobs:
 
     # 2. 執行 PowerShell 腳本
     - name: List files in the current directory
-      run: dir  # 列出當前目錄中的文件，確認腳本是否存在
+      run: dir  # 列出當前目錄的所有檔案
 
-    - name: Run a PowerShell script
+    - name: List files in scripts folder
+      run: dir scripts  # 列出 scripts 資料夾中的檔案，檢查腳本是否存在
+
+    - name: Run PowerShell script
       run: |
         Write-Host "Hello from Windows!"
-        # 設置 PowerShell 執行策略並執行腳本
-        powershell -ExecutionPolicy Bypass -File ./scripts/my-windows-script.ps1
+        # 使用當前工作目錄的絕對路徑來執行腳本
+        powershell -ExecutionPolicy Bypass -File $PWD/scripts/my-windows-script.ps1
 
     # 3. 設置 Python 環境
     - name: Set up Python
