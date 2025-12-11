@@ -15,7 +15,15 @@ jobs:
         run: apt list --installed    
       # - name: Removing previous chrome instances on runner 
       #   run: sudo apt purge google-chrome-stable  
-        
+
+
+      - name: Install Chrome
+        run:
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+
+      - name: Verify Chrome installation
+        run: google-chrome --version
        # Need to fetch reqs if needed
       - name: Installing all necessary packages
         run: pip install chromedriver-autoinstaller selenium pyvirtualdisplay DrissionPage
