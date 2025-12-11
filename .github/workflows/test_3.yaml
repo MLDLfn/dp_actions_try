@@ -33,3 +33,9 @@ jobs:
     - name: Run Python script
       run: |
         python your_script.py  # 运行你的 Python 脚本
+
+    - name: Upload HTML file as an artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: try-html
+        path: try.html  # 上传 try.html 文件
