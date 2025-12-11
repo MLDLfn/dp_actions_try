@@ -14,3 +14,29 @@ jobs:
       run: |
         Write-Host "Hello from Windows!"
         ./scripts/my-windows-script.ps1
+
+name: Install Python and Run Script
+
+on: [push]
+
+jobs:
+  run-on-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'  # 你可以根據需要選擇 Python 的版本
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # 如果有依賴，記得準備 requirements.txt
+
+    - name: Run Python script
+      run: |
+        python your_script.py  # 替換為你要執行的腳本名稱
