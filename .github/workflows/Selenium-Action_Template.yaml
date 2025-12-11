@@ -26,10 +26,12 @@ jobs:
         run: google-chrome --version
        # Need to fetch reqs if needed
       - name: Installing all necessary packages
-        run: pip install chromedriver-autoinstaller selenium pyvirtualdisplay DrissionPage
+        run: pip install curl_cffi pyvirtualdisplay DrissionPage
+      # - name: Installing all necessary packages
+      #   run: pip install chromedriver-autoinstaller selenium pyvirtualdisplay DrissionPage
       - name: Install xvfb
         run: sudo apt-get install xvfb
 
       - name: Running the Python script
-        run: python Selenium-Template.py
+        run: python main.py
       #
