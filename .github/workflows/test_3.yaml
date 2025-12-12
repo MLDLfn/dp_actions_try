@@ -1,4 +1,4 @@
-name: Python CI on Windows
+name: Run Python on Windows
 
 on:
   push:
